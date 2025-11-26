@@ -374,21 +374,32 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">INICIO</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">NOSOTROS</a></li>
                     
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            PRODUCTOS
+                    <li class="nav-item">
+                        <a class="nav-link d-flex justify-content-between align-items-center" 
+                           href="#productosSubmenu" 
+                           data-bs-toggle="collapse" 
+                           role="button" 
+                           aria-expanded="false" 
+                           aria-controls="productosSubmenu">
+                           PRODUCTOS 
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                           </svg>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="productos.html">Ver Todos</a></li>
-                            <li><a class="dropdown-item" href="htmlproductos/Aislaciones.html">Aislaciones</a></li>
-                            <li><a class="dropdown-item" href="htmlproductos/Chapas.html">Chapas</a></li>
-                            <li><a class="dropdown-item" href="htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
-                            <li><a class="dropdown-item" href="htmlproductos/Drywall.html">Drywall</a></li>
-                            <li><a class="dropdown-item" href="htmlproductos/moldurayterminacion.html">Molduras</a></li>
-                            <li><a class="dropdown-item" href="htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
-                            <li><a class="dropdown-item" href="htmlproductos/SteelFrame.html">Steel Frame</a></li>
-                            <li><a class="dropdown-item" href="htmlproductos/Zocalos.html">Zocalos</a></li>
-                        </ul>
+                        
+                        <div class="collapse" id="productosSubmenu">
+                            <ul class="navbar-nav ps-3">
+                                <li><a class="nav-link" href="productos.html">Ver Todos</a></li>
+                                <li><a class="nav-link" href="htmlproductos/Aislaciones.html">Aislaciones</a></li>
+                                <li><a class="nav-link" href="htmlproductos/Chapas.html">Chapas</a></li>
+                                <li><a class="nav-link" href="htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
+                                <li><a class="nav-link" href="htmlproductos/Drywall.html">Drywall</a></li>
+                                <li><a class="nav-link" href="htmlproductos/moldurayterminacion.html">Molduras</a></li>
+                                <li><a class="nav-link" href="htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
+                                <li><a class="nav-link" href="htmlproductos/SteelFrame.html">Steel Frame</a></li>
+                                <li><a class="nav-link" href="htmlproductos/Zocalos.html">Zocalos</a></li>
+                            </ul>
+                        </div>
                     </li>
                     
                     <li class="nav-item"><a class="nav-link" href="proyectos.html">PROYECTOS</a></li>
@@ -578,7 +589,6 @@
                     });
 
                     // --- RETARDO DE 1 SEGUNDO (1000 ms) ---
-                    // Esto permite que el navegador cargue la imagen del logo antes de imprimir
                     setTimeout(function() {
                         iframe.contentWindow.focus();
                         iframe.contentWindow.print();
