@@ -22,7 +22,8 @@
         }
         .header img {
             max-width: 200px; 
-            src: "/images/logo-Photoroom.png"; 
+            /* He quitado la propiedad src de aquí porque en CSS no existe y daba error, 
+               la imagen se carga abajo en el HTML */
         }
         .header-info p {
             margin: 0;
@@ -34,7 +35,7 @@
             font-size: 1.5rem;
         }
 
-        /* 🔽 --- ESTILOS DE LISTA (MODIFICADOS) --- 🔽 */
+        /* 🔽 --- ESTILOS DE LISTA --- 🔽 */
         
         .product-list {
             width: 100%;
@@ -43,7 +44,7 @@
         
         /* Contenedor de la cabecera (Descripción / Cantidad) */
         .product-header {
-            display: flex; /* Clave: activa el modo "fila" */
+            display: flex; 
             font-weight: bold;
             color: #000;
             border-bottom: 1px solid #ccc;
@@ -54,24 +55,19 @@
 
         /* Contenedor de cada fila de producto */
         .product-row {
-            display: flex; /* Clave: activa el modo "fila" */
+            display: flex; 
             padding: 8px 0;
             border-bottom: 1px dotted #eee;
         }
 
-        /*
-         * ESTA ES LA PARTE IMPORTANTE (LA ALINEACIÓN)
-         * Aplicamos a AMBOS (cabecera y filas)
-        */
         .product-name {
-            width: 75%; /* Ocupa el 75% del ancho */
+            width: 75%; 
             text-align: left;
-            /* (Opcional) Evita que el texto se pegue a la cantidad */
             padding-right: 10px; 
         }
         .product-quantity {
-            width: 25%; /* Ocupa el 25% restante */
-            text-align: right; /* Alinea el texto a la DERECHA */
+            width: 25%; 
+            text-align: right; 
         }
 
         /* 🔼 --- FIN DE ESTILOS MODIFICADOS --- 🔼 */
@@ -93,7 +89,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="../images/logo-Photoroom.png" alt="Logo Casas Del Sur">
+            <img src="images/logo-Photoroom.png" alt="Logo Casas Del Sur">
             <div class="header-info">
                 <p><strong>Casas Del Sur</strong></p>
                 <p>Email: casasddelsur@gmail.com</p>
