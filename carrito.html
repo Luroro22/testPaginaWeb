@@ -9,6 +9,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <style>
+        /* --- SOLUCIÓN FOOTER (Sticky Footer) --- */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+
+        main {
+            flex: 1; 
+        }
+
+        footer {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto; 
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        /* --- FIN SOLUCIÓN FOOTER --- */
+
         /* Contenedor del carrito */
         .cart-container {
             width: 90%;
@@ -151,12 +179,6 @@
         }
         .remove-link:hover {
             color: #0056b3;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
         }
 
         header .navbar .nav-link {
@@ -428,23 +450,19 @@
         function renderCart() {
             cartItemsContainer.innerHTML = "";
             
-            // CONFIGURACIÓN DE RUTA DE IMÁGENES
-            // Aquí forzamos que todas las imágenes busquen en "../images/" como pediste.
-            // Si ves que la imagen se rompe porque tu carrito está en la raíz, 
-            // cambia la línea de abajo a: const rutaBase = "images/";
-            const rutaBase = "../images/"; 
+            // CORRECCIÓN: Usamos "images/" porque carrito.html está en la raíz.
+            const rutaBase = "images/"; 
 
             if (window.innerWidth > 768) {
                 // Versión Desktop
                 cart.forEach((item, index) => {
-                    // Limpieza de ruta: borra lo que haya antes y pone la ruta nueva
                     let nombreImagen = item.img.split('/').pop(); 
                     let imagenFinal = rutaBase + nombreImagen;
 
                     const row = document.createElement("tr");
                     row.innerHTML = `
                         <td data-label="Eliminar"><button class="remove-btn" data-index="${index}">X</button></td>
-                        <td data-label="Foto"><img src="${imagenFinal}" class="cart-img"></td>
+                        <td data-label="Foto"><img src="${imagenFinal}" class="cart-img" alt="${item.name}"></td>
                         <td data-label="Producto">${item.name}</td>
                         <td data-label="Cantidad">
                             <input type="number" class="quantity-input" min="1" value="${item.quantity}" data-index="${index}">
@@ -456,13 +474,12 @@
             } else {
                 // Versión Móvil
                 cart.forEach((item, index) => {
-                    // Limpieza de ruta para móvil
                     let nombreImagen = item.img.split('/').pop(); 
                     let imagenFinal = rutaBase + nombreImagen;
 
                     const row = document.createElement("tr");
                     row.innerHTML = `
-                        <td data-label="Foto"><img src="${imagenFinal}" class="cart-img"></td>
+                        <td data-label="Foto"><img src="${imagenFinal}" class="cart-img" alt="${item.name}"></td>
                         <td data-label="Producto">${item.name}</td>
                         <td data-label="">
                             <span class="remove-link" data-index="${index}">
