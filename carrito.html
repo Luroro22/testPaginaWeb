@@ -523,7 +523,7 @@
             }
         }
 
-        // --- FUNCIÓN DE IMPRESIÓN ---
+        // --- FUNCIÓN DE IMPRESIÓN CON RETARDO ---
 
         function imprimirOrden() {
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -560,7 +560,12 @@
                         listContainer.appendChild(row);
                     });
 
-                    iframe.contentWindow.print();
+                    // --- RETARDO DE 1 SEGUNDO (1000 ms) ---
+                    // Esto permite que el navegador cargue la imagen del logo antes de imprimir
+                    setTimeout(function() {
+                        iframe.contentWindow.focus();
+                        iframe.contentWindow.print();
+                    }, 1000);
 
                 } catch (error) {
                     console.error("Error al imprimir:", error);
